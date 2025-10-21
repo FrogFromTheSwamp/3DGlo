@@ -1,0 +1,1 @@
+(()=>{"use strict";console.log("I am module one.js"),console.log("I am module two.js")})();

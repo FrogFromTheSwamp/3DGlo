@@ -1,0 +1,24 @@
+{
+  "name": "3dglo",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/FrogFromTheSwamp/3DGlo#readme",
+  "bugs": {
+    "url": "https://github.com/FrogFromTheSwamp/3DGlo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrogFromTheSwamp/3DGlo.git"
+  },
+  "license": "ISC",
+  "author": "Arina Zhukova",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "devDependencies": {
+    "webpack": "^5.102.1",
+    "webpack-cli": "^6.0.1"
+  }
+}
