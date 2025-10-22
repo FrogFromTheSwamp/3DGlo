@@ -1,5 +1,6 @@
-import printOne from './modules/one'
-import printTwo from './modules/two'
+import timer from './modules/timer'
+import printConsole from './modules/null';
 
-printOne();
-printTwo();
+timer('20 october 2025');
+printConsole();
+
