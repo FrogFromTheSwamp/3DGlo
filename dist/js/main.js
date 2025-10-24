@@ -16,17 +16,27 @@
   \******************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_timer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/timer */ \"./modules/timer.js\");\n/* harmony import */ var _modules_null__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/null */ \"./modules/null.js\");\n\r\n\r\n\r\n(0,_modules_timer__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('20 october 2025');\r\n(0,_modules_null__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\r\n\r\n\n\n//# sourceURL=webpack:///./index.js?\n}");
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_timer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/timer */ \"./modules/timer.js\");\n/* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menu */ \"./modules/menu.js\");\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/modal */ \"./modules/modal.js\");\n\r\n\r\n\r\n\r\n(0,_modules_timer__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('25 october 2025');\r\n(0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__[\"default\"])()\r\n;(0,_modules_modal__WEBPACK_IMPORTED_MODULE_2__[\"default\"])()\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./index.js?\n}");
 
 /***/ }),
 
-/***/ "./modules/null.js":
+/***/ "./modules/menu.js":
 /*!*************************!*\
-  !*** ./modules/null.js ***!
+  !*** ./modules/menu.js ***!
   \*************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst printConsole = () => {\r\n    const date = new Date;\r\n    const dateNewYear = new Date(2025, 11, 31);\r\n    const deadlineDay = Math.floor((dateNewYear.getTime() - date.getTime()) / 1000 / 60 / 60 / 24)\r\n\r\n    let greet;\r\n    let timeEN;\r\n    if (date.getHours() >= 6 && date.getHours() <= 12) { greet = 'Доброе утро!'; timeEN = 'AM'; }\r\n    else if (date.getHours() > 12 && date.getHours() < 18) { greet = 'Добрый день!'; timeEN = 'AM'; }\r\n    else if (date.getHours()>= 18 && date.getHours() < 1 ) { greet = 'Добрый вечер!'; timeEN = 'PM'; }\r\n    else if (date.getHours() >= 1 && date.getHours() < 6) { greet = 'Доброй ночи!'; timeEN = 'PM'; }\r\n\r\n    let day = {1: 'Понедельник', 2: 'Вторник', 3: 'Среда', 4: 'Четверг', 5: 'Пятница', 6: 'Суббота', 7: 'Воскресенье'};\r\n    console.log(greet);\r\n    console.log(`Сегодня: ${day[date.getDay()]}`);\r\n    console.log(`Текущее время: ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} ${timeEN}`);\r\n    console.log(`До Нового года осталось ${deadlineDay} дней`)\r\n\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (printConsole);\r\n\n\n//# sourceURL=webpack:///./modules/null.js?\n}");
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst menu = () => {\r\n    const menuBtn = document.querySelector('.menu');\r\n    const menu = document.querySelector('menu');\r\n    const closeBtn = menu.querySelector('.close-btn');\r\n    const menuItems = menu.querySelectorAll('ul>li>a');\r\n\r\n    const handleMenu = () => {\r\n        menu.classList.toggle('active-menu');\r\n    }\r\n\r\n    menuBtn.addEventListener('click', handleMenu)\r\n    closeBtn.addEventListener('click',handleMenu)\r\n    menuItems.forEach(item => item.addEventListener('click', handleMenu) )\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (menu);\n\n//# sourceURL=webpack:///./modules/menu.js?\n}");
+
+/***/ }),
+
+/***/ "./modules/modal.js":
+/*!**************************!*\
+  !*** ./modules/modal.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst modal = () => {\r\n    const buttons = document.querySelectorAll('.popup-btn');\r\n    const modal = document.querySelector('.popup')\r\n    const modalClose = modal.querySelector('.popup-close');\r\n    const modalContent = modal.querySelector('.popup-content');\r\n\r\n    buttons.forEach(item => {\r\n        item.addEventListener('click', () => {\r\n            if (window.innerWidth < 768) {\r\n                modal.style.display = 'block';\r\n                modal.style.opacity = '1';\r\n                modalContent.style.transform = 'translateX(0)';\r\n            } else {\r\n                modal.style.display = 'block';\r\n                modal.style.opacity = '0';\r\n                modalContent.style.transform = 'translateX(-50px)';\r\n\r\n                let startTime = null;\r\n                const duration = 200;\r\n\r\n                function animate(timestamp) {\r\n                    if (!startTime) startTime = timestamp;\r\n                    const progress = (timestamp - startTime) / duration;\r\n                    if (progress < 1) {\r\n                        modal.style.opacity = progress.toString();\r\n                        const translateX = -50 * (1 - progress);\r\n                        modalContent.style.transform = `translateX(${translateX}px)`;\r\n                        requestAnimationFrame(animate);\r\n                    } else {\r\n                        modal.style.opacity = '1';\r\n                        modalContent.style.transform = 'translateX(0)';\r\n                    }\r\n                }\r\n                requestAnimationFrame(animate);\r\n            }\r\n        })\r\n    })\r\n\r\n    modalClose.addEventListener('click', () => {\r\n        modal.style.display = 'none';\r\n    })\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modal);\n\n//# sourceURL=webpack:///./modules/modal.js?\n}");
 
 /***/ }),
 

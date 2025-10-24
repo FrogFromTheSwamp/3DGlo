@@ -1,6 +1,9 @@
 import timer from './modules/timer'
-import printConsole from './modules/null';
+import menu from './modules/menu'
+import modal from './modules/modal'
 
-timer('20 october 2025');
-printConsole();
+timer('25 october 2025');
+menu()
+modal()
+
 
