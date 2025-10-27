@@ -16,7 +16,7 @@
   \******************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_timer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/timer */ \"./modules/timer.js\");\n/* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menu */ \"./modules/menu.js\");\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/modal */ \"./modules/modal.js\");\n\r\n\r\n\r\n\r\n(0,_modules_timer__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('25 october 2025');\r\n(0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__[\"default\"])()\r\n;(0,_modules_modal__WEBPACK_IMPORTED_MODULE_2__[\"default\"])()\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./index.js?\n}");
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_timer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/timer */ \"./modules/timer.js\");\n/* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menu */ \"./modules/menu.js\");\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/modal */ \"./modules/modal.js\");\n/* harmony import */ var _modules_validationCalculator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/validationCalculator */ \"./modules/validationCalculator.js\");\n/* harmony import */ var _modules_validationForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/validationForm */ \"./modules/validationForm.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n(0,_modules_timer__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('26 october 2025');\r\n(0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__[\"default\"])()\r\n;(0,_modules_modal__WEBPACK_IMPORTED_MODULE_2__[\"default\"])()\r\n;(0,_modules_validationCalculator__WEBPACK_IMPORTED_MODULE_3__[\"default\"])()\r\n;(0,_modules_validationForm__WEBPACK_IMPORTED_MODULE_4__[\"default\"])()\r\n\n\n//# sourceURL=webpack:///./index.js?\n}");
 
 /***/ }),
 
@@ -47,6 +47,26 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpa
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst timer = (deadline) => {\r\n    const timerHours = document.getElementById('timer-hours');\r\n    const timerMinutes = document.getElementById('timer-minutes');\r\n    const timerSeconds = document.getElementById('timer-seconds');\r\n\r\n    let intervalId;\r\n\r\n    const getTimeRemaining = () => {\r\n    let dateStop = new Date(deadline).getTime();\r\n    let dateNow = new Date().getTime();\r\n\r\n    let timeRemaining = (dateStop - dateNow) / 1000;\r\n\r\n    let hours = Math.floor(timeRemaining / 60 / 60);\r\n    let minutes = Math.floor((timeRemaining / 60) % 60);\r\n    let secundes = Math.floor(timeRemaining % 60);\r\n    hours = createNumber(hours);\r\n    minutes = createNumber(minutes);\r\n    secundes = createNumber(secundes);\r\n\r\n\r\n    return { timeRemaining, hours, minutes, secundes }\r\n    }\r\n\r\n    const updateClock = () => {\r\n        let getTime = getTimeRemaining();\r\n\r\n        timerHours.textContent = getTime.hours;\r\n        timerMinutes.textContent = getTime.minutes;\r\n        timerSeconds.textContent = getTime.secundes;\r\n\r\n        if (getTime.timeRemaining <= 0) {\r\n            clearInterval(intervalId);\r\n            timerHours.textContent = '00';\r\n            timerMinutes.textContent = '00';\r\n            timerSeconds.textContent = '00';\r\n        }\r\n    }\r\n\r\n    const createNumber = (num) => {\r\n        if (num < 10) {\r\n            num = '0' + num;\r\n        }\r\n        return num\r\n    }\r\n    \r\n    intervalId = setInterval(updateClock, 1000);\r\n    updateClock();\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (timer);\n\n//# sourceURL=webpack:///./modules/timer.js?\n}");
+
+/***/ }),
+
+/***/ "./modules/validationCalculator.js":
+/*!*****************************************!*\
+  !*** ./modules/validationCalculator.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst validationCalculator = () => {\r\n    const calculatorInput = document.querySelectorAll('.calc-block input');\r\n    calculatorInput.forEach(item => {\r\n        item.addEventListener('input', (e) => {\r\n            e.target.value = e.target.value.replace(/\\D/g, \"\");\r\n        })\r\n    })\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (validationCalculator);\n\n//# sourceURL=webpack:///./modules/validationCalculator.js?\n}");
+
+/***/ }),
+
+/***/ "./modules/validationForm.js":
+/*!***********************************!*\
+  !*** ./modules/validationForm.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst validationForm = () => {\r\n    const formName = document.querySelectorAll('.form-name');\r\n    const formEmail = document.querySelectorAll('.form-email');\r\n    const formPhone = document.querySelectorAll('.form-phone');\r\n    const formMes = document.querySelectorAll('.mess');\r\n\r\n    formName.forEach(item => {\r\n        item.addEventListener('input', (e) => {\r\n            e.target.value = e.target.value.replace(/[^А-Яа-яЁё\\s-]/g, \"\")\r\n        })\r\n    })\r\n\r\n    formMes.forEach(item => {\r\n        item.addEventListener('input', e => {\r\n            e.target.value = e.target.value.replace(/[^А-Яа-яЁё\\s-]/g, \"\")\r\n        })\r\n    })\r\n\r\n    formEmail.forEach(item => {\r\n        item.addEventListener('input', e => {\r\n            e.target.value = e.target.value.replace(/[^A-Za-z0-9@\\-_.!~*']/g, \"\")\r\n        })\r\n    })\r\n\r\n    formPhone.forEach(item => {\r\n        item.addEventListener('input', e => {\r\n            e.target.value = e.target.value.replace(/[^\\d()\\-\\s]/g, \"\")\r\n        })\r\n    })\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (validationForm);\n\n//# sourceURL=webpack:///./modules/validationForm.js?\n}");
 
 /***/ })
 
