@@ -4,6 +4,7 @@ import modal from './modules/modal' // Модальные окна с формо
 import validationCalculator from './modules/validationCalculator' // Проверка для калькулятора на ввод только цифр
 import validationForm from './modules/validationForm' // Проверка формы обратной связи
 import tabs from './modules/tabs' // Табы на странице
+import slider from './modules/slider' // Слайдер на странице
 
 timer('30 october 2025');
 menu()
@@ -11,3 +12,4 @@ modal()
 validationCalculator()
 validationForm()
 tabs()
+slider()
