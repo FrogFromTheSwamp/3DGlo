@@ -5,6 +5,7 @@ import validationCalculator from './modules/validationCalculator' // Прове�
 import validationForm from './modules/validationForm' // Проверка формы обратной связи
 import tabs from './modules/tabs' // Табы на странице
 import slider from './modules/slider' // Слайдер на странице
+import sliderCarausel from './modules/sliderCarausel' //Слайдер-карусель для партнеров
 
 timer('30 october 2025');
 menu()
@@ -13,3 +14,4 @@ validationCalculator()
 validationForm()
 tabs()
 slider()
+sliderCarausel()

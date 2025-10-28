@@ -18,6 +18,9 @@
     "watch": "webpack --watch --mode=development",
     "start": "webpack serve --mode=development --open"
   },
+  "dependencies": {
+    "swiper": "^12.0.3"
+  },
   "devDependencies": {
     "@eslint/js": "^9.38.0",
     "eslint": "^9.38.0",
