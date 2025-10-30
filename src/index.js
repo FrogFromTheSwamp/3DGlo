@@ -6,12 +6,14 @@ import validationForm from './modules/validationForm' // Проверка фор
 import tabs from './modules/tabs' // Табы на странице
 import slider from './modules/slider' // Слайдер на странице
 import sliderCarausel from './modules/sliderCarausel' //Слайдер-карусель для партнеров
+import calculator from './modules/calculator' // Калькулятор на странице
 
-timer('30 october 2025');
-menu()
-modal()
-validationCalculator()
-validationForm()
-tabs()
-slider()
-sliderCarausel()
+timer('31 october 2025'); // Передаём дату окончания акции
+menu();
+modal();
+validationCalculator();
+validationForm();
+tabs();
+slider();
+sliderCarausel();
+calculator(); // Можно передать стоимость за 1 кв. метр
