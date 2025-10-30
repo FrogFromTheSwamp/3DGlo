@@ -1,3 +1,5 @@
+import { animate } from "./helpers";
+
 const calculator = (price = 100) => {
     const calcBlock = document.querySelector('.calc-block');
     const calcType = calcBlock.querySelector('.calc-type');
@@ -6,22 +8,16 @@ const calculator = (price = 100) => {
     const calcDay = calcBlock.querySelector('.calc-day');
     const total = calcBlock.querySelector('#total');
 
-    const animateTotal = (start, end, duration = 350) => {
-        const frameRate = 30;
-        const totalFrames = Math.round((duration / 1000) * frameRate);
-        let frame = 0;
-
-        const counter = setInterval(() => {
-            frame++;
-            const progress = frame / totalFrames;
-            const current = Math.round(start + (end - start) * progress);
-            total.textContent = current;
-
-            if (frame >= totalFrames) {
-                clearInterval(counter);
-                total.textContent = Math.round(end);
-            }
-        }, 1000 / frameRate);
+    const animateTotal = (element, start, end, duration = 500) => {
+        animate({ duration,
+                timing(timeFraction) {
+                    return timeFraction; // линейная анимация
+                },
+                draw(progress) {
+                    const current = Math.round(start + (end - start) * progress);
+                    element.textContent = current;
+                }
+        });
     }
 
     const countCalc = () => {
@@ -45,9 +41,10 @@ const calculator = (price = 100) => {
         if (calcTypeValue && calcSquareValue) {
             totalValue = price * calcTypeValue * calcSquareValue * calcCountValue * calcDayValue;
         } else { totalValue = 0; }
-
+        
+        // Анимация
         const currentTotal = +total.textContent || 0;
-        animateTotal(currentTotal, totalValue);
+        animateTotal(total, currentTotal, totalValue, 300);
     }
 
     calcBlock.addEventListener('input', () => {
