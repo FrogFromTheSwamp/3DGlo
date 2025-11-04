@@ -7,6 +7,7 @@ import tabs from './modules/tabs' // Табы на странице
 import slider from './modules/slider' // Слайдер на странице
 import sliderCarausel from './modules/sliderCarausel' //Слайдер-карусель для партнеров
 import calculator from './modules/calculator' // Калькулятор на странице
+import sendForm from './modules/sendForm'
 
 timer('31 october 2025'); // Передаём дату окончания акции
 menu();
@@ -17,3 +18,25 @@ tabs();
 slider();
 sliderCarausel();
 calculator(); // Можно передать стоимость за 1 кв. метр
+sendForm({ 
+    idForm: "form1", 
+    someElem: [
+        {
+            type: "block",
+            id: "total"
+        }
+    ] 
+})
+sendForm({ 
+    idForm: "form2", 
+    someElem: [
+        {
+            type: "input",
+            id: "form2-message"
+        }
+    ] 
+})
+sendForm({ 
+    idForm: "form3", 
+    someElem: [] 
+})
